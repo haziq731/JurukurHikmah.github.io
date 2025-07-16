@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jurukur Hikmah - Professional Land Surveying Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#90A955',
+secondary: '#4A3F35'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.service-card:hover {
+background-color: rgba(144, 169, 85, 0.1);
+transform: translateY(-5px);
+}
+.project-card:hover .project-overlay {
+opacity: 1;
+}
+.nav-link {
+position: relative;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -4px;
+left: 0;
+background-color: #4A3F35;
+transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+width: 100%;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #90A955;
+box-shadow: 0 0 0 2px rgba(144, 169, 85, 0.2);
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #4A3F35;
+border-radius: 4px;
+margin-right: 8px;
+position: relative;
+cursor: pointer;
+transition: all 0.2s ease;
+}
+.custom-checkbox:checked {
+background-color: #90A955;
+border-color: #90A955;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+top: 3px;
+left: 6px;
+width: 6px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #90A955;
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+</style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+<!-- Header/Navigation -->
+<header class="fixed top-0 left-0 w-full bg-primary shadow-md z-50">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<a href="#" class="text-secondary text-3xl font-['Pacifico'] font-bold">Jurukur Hikmah</a>
+<nav class="hidden lg:flex items-center space-x-8">
+<a href="#" class="nav-link text-secondary font-medium hover:text-secondary/80 active">Home</a>
+<a href="#services" class="nav-link text-secondary font-medium hover:text-secondary/80">Services</a>
+<a href="#projects" class="nav-link text-secondary font-medium hover:text-secondary/80">Projects</a>
+<a href="#about" class="nav-link text-secondary font-medium hover:text-secondary/80">About Us</a>
+<a href="#contact" class="nav-link text-secondary font-medium hover:text-secondary/80">Contact</a>
+<button class="bg-secondary text-white px-6 py-2 !rounded-button font-medium hover:bg-secondary/90 transition duration-300 whitespace-nowrap">Get a Quote</button>
+</nav>
+<button class="lg:hidden w-10 h-10 flex items-center justify-center text-secondary" id="mobile-menu-button">
+<i class="ri-menu-line ri-2x"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div class="lg:hidden bg-white absolute w-full left-0 top-full shadow-md hidden" id="mobile-menu">
+<div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+<a href="#" class="text-secondary font-medium py-2 border-b border-gray-100">Home</a>
+<a href="#services" class="text-secondary font-medium py-2 border-b border-gray-100">Services</a>
+<a href="#projects" class="text-secondary font-medium py-2 border-b border-gray-100">Projects</a>
+<a href="#about" class="text-secondary font-medium py-2 border-b border-gray-100">About Us</a>
+<a href="#contact" class="text-secondary font-medium py-2 border-b border-gray-100">Contact</a>
+<button class="bg-secondary text-white px-6 py-2 !rounded-button font-medium hover:bg-secondary/90 transition duration-300 whitespace-nowrap">Get a Quote</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative pt-20 min-h-[700px] flex items-center" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20land%20surveying%20scene%20with%20topographical%20map%20and%20equipment%2C%20beautiful%20landscape%20with%20mountains%20and%20fields%2C%20soft%20lighting%2C%20high-quality%20professional%20photography%2C%20showing%20surveying%20equipment%20in%20use%2C%20natural%20colors%2C%20high%20resolution%2C%20photorealistic%2C%20detailed%20terrain&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-secondary/60"></div>
+<div class="container mx-auto px-4 py-20 relative z-10">
+<div class="max-w-2xl">
+<h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">Professional Land Surveying Solutions</h1>
+<p class="text-xl text-white/90 mb-8">Precision and Accuracy in Every Measurement. We deliver comprehensive surveying services with cutting-edge technology and decades of expertise.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary text-white border-2 border-white px-8 py-3 !rounded-button font-medium hover:bg-white hover:text-secondary transition duration-300 whitespace-nowrap">Our Services</button>
+<button class="bg-transparent text-white border-2 border-white px-8 py-3 !rounded-button font-medium hover:bg-white hover:text-secondary transition duration-300 whitespace-nowrap">Contact Us</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-secondary mb-4">Our Services</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">We provide comprehensive land surveying solutions tailored to meet the unique needs of each project with precision and expertise.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="service-card bg-white p-8 rounded shadow-md transition duration-300 h-full">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-map-pin-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-secondary mb-4">Land Surveying</h3>
+<p class="text-gray-600 mb-4">Comprehensive land surveying services including boundary surveys, topographic surveys, and ALTA/NSPS surveys to establish property lines and boundaries with precision.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Service 2 -->
+<div class="service-card bg-white p-8 rounded shadow-md transition duration-300 h-full">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-landscape-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-secondary mb-4">Topographic Mapping</h3>
+<p class="text-gray-600 mb-4">Detailed topographic mapping services to identify and map the natural and man-made features of land, essential for planning and development projects.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Service 3 -->
+<div class="service-card bg-white p-8 rounded shadow-md transition duration-300 h-full">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-ruler-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-secondary mb-4">Boundary Surveys</h3>
+<p class="text-gray-600 mb-4">Professional boundary survey services to determine and establish property lines, resolve boundary disputes, and ensure legal compliance for property owners.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Service 4 -->
+<div class="service-card bg-white p-8 rounded shadow-md transition duration-300 h-full">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-building-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-secondary mb-4">Construction Surveying</h3>
+<p class="text-gray-600 mb-4">Precise construction surveying services to establish reference points and measurements needed for construction projects, ensuring accuracy in building placement.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Service 5 -->
+<div class="service-card bg-white p-8 rounded shadow-md transition duration-300 h-full">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-earth-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-secondary mb-4">GPS Surveying</h3>
+<p class="text-gray-600 mb-4">Advanced GPS surveying techniques to provide highly accurate positioning data for various applications, including mapping, navigation, and land management.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+<!-- Service 6 -->
+<div class="service-card bg-white p-8 rounded shadow-md transition duration-300 h-full">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<i class="ri-file-list-3-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-secondary mb-4">Land Title Surveys</h3>
+<p class="text-gray-600 mb-4">Comprehensive land title surveys to identify property boundaries, easements, encroachments, and other elements affecting property ownership and rights.</p>
+<a href="#" class="text-primary font-medium flex items-center">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-20">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<img src="https://readdy.ai/api/search-image?query=professional%20land%20surveying%20team%20working%20in%20the%20field%20with%20modern%20equipment%2C%20diverse%20team%20of%20surveyors%2C%20natural%20lighting%2C%20high-quality%20professional%20photography%2C%20showing%20surveying%20equipment%20in%20use%2C%20natural%20colors%2C%20high%20resolution%2C%20photorealistic&width=800&height=600&seq=2&orientation=landscape" alt="Jurukur Hikmah Team" class="rounded-lg shadow-lg object-cover w-full h-full object-top">
+</div>
+<div>
+<h2 class="text-4xl font-bold text-secondary mb-6">About Jurukur Hikmah</h2>
+<p class="text-gray-600 mb-6">Founded in 2005, Jurukur Hikmah has established itself as a leading land surveying company committed to delivering precise, reliable, and innovative surveying solutions. With over 20 years of industry experience, our team of certified professionals combines technical expertise with cutting-edge technology to provide exceptional service.</p>
+<p class="text-gray-600 mb-8">We take pride in our attention to detail, commitment to accuracy, and dedication to client satisfaction. Our comprehensive approach ensures that each project, regardless of size or complexity, receives the highest level of care and precision.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-team-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-bold text-secondary mb-2">Expert Team</h4>
+<p class="text-gray-600">Certified professionals with decades of combined experience</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-device-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-bold text-secondary mb-2">Advanced Technology</h4>
+<p class="text-gray-600">State-of-the-art equipment for precise measurements</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-award-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-bold text-secondary mb-2">Quality Assurance</h4>
+<p class="text-gray-600">Rigorous quality control for accurate results</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-customer-service-2-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="text-lg font-bold text-secondary mb-2">Client-Focused</h4>
+<p class="text-gray-600">Personalized service tailored to your needs</p>
+</div>
+</div>
+</div>
+<button class="bg-secondary text-white px-8 py-3 !rounded-button font-medium hover:bg-secondary/90 transition duration-300 whitespace-nowrap">Learn More About Us</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="py-20 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-secondary mb-4">Our Projects</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">Explore our portfolio of successful projects that showcase our expertise and commitment to excellence in land surveying.</p>
+</div>
+<div class="mb-8 flex justify-center">
+<div class="inline-flex bg-white p-1 rounded-full shadow-sm">
+<button class="px-6 py-2 rounded-full bg-primary text-white font-medium whitespace-nowrap">All Projects</button>
+<button class="px-6 py-2 rounded-full text-secondary font-medium hover:bg-gray-100 whitespace-nowrap">Land Surveying</button>
+<button class="px-6 py-2 rounded-full text-secondary font-medium hover:bg-gray-100 whitespace-nowrap">Topographic</button>
+<button class="px-6 py-2 rounded-full text-secondary font-medium hover:bg-gray-100 whitespace-nowrap">Construction</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project 1 -->
+<div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative group">
+<img src="https://readdy.ai/api/search-image?query=land%20surveying%20project%20in%20urban%20area%2C%20professional%20surveyors%20working%20with%20equipment%2C%20city%20development%20project%2C%20natural%20lighting%2C%20high-quality%20professional%20photography%2C%20photorealistic&width=600&height=400&seq=3&orientation=landscape" alt="Urban Development Project" class="w-full h-64 object-cover object-top">
+<div class="project-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-xl font-bold text-white mb-2">Urban Development Project</h3>
+<p class="text-white/90 mb-4">Comprehensive land surveying for a major urban development project in downtown area.</p>
+<a href="#" class="text-white font-medium flex items-center">
+View Project
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative group">
+<img src="https://readdy.ai/api/search-image?query=topographic%20mapping%20of%20mountainous%20terrain%2C%20beautiful%20landscape%20with%20hills%20and%20valleys%2C%20surveying%20equipment%20visible%2C%20natural%20lighting%2C%20high-quality%20professional%20photography%2C%20photorealistic&width=600&height=400&seq=4&orientation=landscape" alt="Topographic Mapping" class="w-full h-64 object-cover object-top">
+<div class="project-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-xl font-bold text-white mb-2">Mountain Range Mapping</h3>
+<p class="text-white/90 mb-4">Detailed topographic mapping of challenging mountainous terrain for conservation efforts.</p>
+<a href="#" class="text-white font-medium flex items-center">
+View Project
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative group">
+<img src="https://readdy.ai/api/search-image?query=highway%20construction%20surveying%20project%2C%20surveyors%20with%20equipment%20on%20road%20construction%20site%2C%20infrastructure%20development%2C%20natural%20lighting%2C%20high-quality%20professional%20photography%2C%20photorealistic&width=600&height=400&seq=5&orientation=landscape" alt="Highway Construction" class="w-full h-64 object-cover object-top">
+<div class="project-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-xl font-bold text-white mb-2">Highway Infrastructure</h3>
+<p class="text-white/90 mb-4">Precision surveying for a major highway construction project spanning 25 kilometers.</p>
+<a href="#" class="text-white font-medium flex items-center">
+View Project
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative group">
+<img src="https://readdy.ai/api/search-image?query=residential%20subdivision%20land%20surveying%2C%20property%20development%20project%2C%20surveyors%20marking%20boundaries%2C%20natural%20lighting%2C%20high-quality%20professional%20photography%2C%20photorealistic&width=600&height=400&seq=6&orientation=landscape" alt="Residential Subdivision" class="w-full h-64 object-cover object-top">
+<div class="project-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-xl font-bold text-white mb-2">Residential Subdivision</h3>
+<p class="text-white/90 mb-4">Comprehensive boundary surveys for a new residential development with 120 lots.</p>
+<a href="#" class="text-white font-medium flex items-center">
+View Project
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<!-- Project 5 -->
+<div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative group">
+<img src="https://readdy.ai/api/search-image?query=wetland%20conservation%20surveying%20project%2C%20environmental%20surveying%2C%20surveyors%20in%20natural%20wetland%20area%2C%20natural%20lighting%2C%20high-quality%20professional%20photography%2C%20photorealistic&width=600&height=400&seq=7&orientation=landscape" alt="Wetland Conservation" class="w-full h-64 object-cover object-top">
+<div class="project-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-xl font-bold text-white mb-2">Wetland Conservation</h3>
+<p class="text-white/90 mb-4">Environmental surveying for a wetland conservation project covering 500 acres.</p>
+<a href="#" class="text-white font-medium flex items-center">
+View Project
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<!-- Project 6 -->
+<div class="project-card bg-white rounded-lg overflow-hidden shadow-md relative group">
+<img src="https://readdy.ai/api/search-image?query=commercial%20property%20boundary%20survey%2C%20urban%20commercial%20building%20site%2C%20surveyors%20with%20equipment%2C%20natural%20lighting%2C%20high-quality%20professional%20photography%2C%20photorealistic&width=600&height=400&seq=8&orientation=landscape" alt="Commercial Property" class="w-full h-64 object-cover object-top">
+<div class="project-overlay absolute inset-0 bg-primary/80 flex flex-col justify-end p-6 opacity-0 transition-opacity duration-300">
+<h3 class="text-xl font-bold text-white mb-2">Commercial Complex</h3>
+<p class="text-white/90 mb-4">Detailed boundary and topographic surveys for a major commercial development project.</p>
+<a href="#" class="text-white font-medium flex items-center">
+View Project
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<button class="bg-secondary text-white px-8 py-3 !rounded-button font-medium hover:bg-secondary/90 transition duration-300 whitespace-nowrap">View All Projects</button>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-20 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-secondary mb-4">What Our Clients Say</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">Hear from our satisfied clients about their experience working with Jurukur Hikmah.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+<div class="flex items-center mb-6">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"Jurukur Hikmah provided exceptional surveying services for our commercial development project. Their attention to detail and commitment to accuracy saved us from potential issues during construction. Highly recommended!"</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
+<span class="text-primary font-bold">RD</span>
+</div>
+<div>
+<h4 class="font-bold text-secondary">Robert Davidson</h4>
+<p class="text-gray-500 text-sm">Project Manager, Axis Development</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+<div class="flex items-center mb-6">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"We've worked with several surveying companies over the years, but Jurukur Hikmah stands out for their professionalism, expertise, and reliability. Their team went above and beyond to ensure our project was completed on time and with precision."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
+<span class="text-primary font-bold">SL</span>
+</div>
+<div>
+<h4 class="font-bold text-secondary">Sarah Livingston</h4>
+<p class="text-gray-500 text-sm">Director, Green Valley Properties</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+<div class="flex items-center mb-6">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"As a civil engineer, I appreciate the accuracy and detail in Jurukur Hikmah's topographic surveys. Their data is consistently reliable, and their team is responsive and professional. They've become our go-to surveying partner for all projects."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
+<span class="text-primary font-bold">MJ</span>
+</div>
+<div>
+<h4 class="font-bold text-secondary">Michael Johnson</h4>
+<p class="text-gray-500 text-sm">Senior Civil Engineer, Construct Pro</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-primary/5">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-secondary mb-4">Contact Us</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">Have questions or ready to start your project? Get in touch with our team for professional surveying solutions.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="bg-white p-8 rounded-lg shadow-md">
+<h3 class="text-2xl font-bold text-secondary mb-6">Send Us a Message</h3>
+<form>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label for="name" class="block text-gray-700 mb-2">Full Name</label>
+<input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Your name">
+</div>
+<div>
+<label for="email" class="block text-gray-700 mb-2">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Your email">
+</div>
+</div>
+<div class="mb-6">
+<label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+<input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Your phone number">
+</div>
+<div class="mb-6">
+<label for="service" class="block text-gray-700 mb-2">Service Interested In</label>
+<div class="relative">
+<select id="service" class="w-full px-4 py-2 border border-gray-300 rounded appearance-none pr-8 focus:border-primary">
+<option value="" selected disabled>Select a service</option>
+<option value="land-surveying">Land Surveying</option>
+<option value="topographic">Topographic Mapping</option>
+<option value="boundary">Boundary Surveys</option>
+<option value="construction">Construction Surveying</option>
+<option value="gps">GPS Surveying</option>
+<option value="title">Land Title Surveys</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-400"></i>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label for="message" class="block text-gray-700 mb-2">Message</label>
+<textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded resize-none focus:border-primary" placeholder="Tell us about your project"></textarea>
+</div>
+<div class="mb-6 flex items-center">
+<input type="checkbox" id="subscribe" class="custom-checkbox">
+<label for="subscribe" class="text-gray-700">Subscribe to our newsletter for updates and industry insights</label>
+</div>
+<button type="submit" class="bg-secondary text-white px-8 py-3 !rounded-button font-medium hover:bg-secondary/90 transition duration-300 w-full md:w-auto whitespace-nowrap">Send Message</button>
+</form>
+</div>
+<div>
+<div class="bg-white p-8 rounded-lg shadow-md mb-8">
+<h3 class="text-2xl font-bold text-secondary mb-6">Contact Information</h3>
+<div class="space-y-6">
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-map-pin-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="font-bold text-secondary mb-1">Office Address</h4>
+<p class="text-gray-600">NO. 20, TINGKAT 1<br>LORONG PERDA UTAMA 7<br>BANDAR PERDA<br>14000 BUKIT MERTAJAM<br>PULAU PINANG</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-phone-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="font-bold text-secondary mb-1">Phone Number</h4>
+<p class="text-gray-600">04-5485786</p>
+<p class="text-gray-600">019-4722401 (Mobile)</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-mail-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="font-bold text-secondary mb-1">Email Address</h4>
+<p class="text-gray-600">hikmah@ljt.org.my</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mr-4">
+<i class="ri-time-line ri-lg text-primary"></i>
+</div>
+<div>
+<h4 class="font-bold text-secondary mb-1">Business Hours</h4>
+<p class="text-gray-600">Monday - Friday: 8:30 AM - 5:30 PM</p>
+<p class="text-gray-600">Saturday: 9:00 AM - 1:00 PM</p>
+<p class="text-gray-600">Sunday: Closed</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md">
+<h3 class="text-2xl font-bold text-secondary mb-6">Follow Us</h3>
+<div class="flex space-x-4">
+<a href="#" class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full hover:bg-primary/20 transition duration-300">
+<i class="ri-facebook-fill ri-lg text-primary"></i>
+</a>
+<a href="#" class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full hover:bg-primary/20 transition duration-300">
+<i class="ri-twitter-fill ri-lg text-primary"></i>
+</a>
+<a href="#" class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full hover:bg-primary/20 transition duration-300">
+<i class="ri-linkedin-fill ri-lg text-primary"></i>
+</a>
+<a href="#" class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full hover:bg-primary/20 transition duration-300">
+<i class="ri-instagram-fill ri-lg text-primary"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Map Section -->
+<section class="h-[400px] relative">
+<div class="absolute inset-0 bg-center bg-cover" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');"></div>
+<div class="absolute inset-0 bg-secondary/20"></div>
+</section>
+<!-- CTA Section -->
+<section class="py-20 bg-secondary">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-4xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
+<p class="text-white/80 max-w-3xl mx-auto mb-8">Contact us today for a free consultation and quote. Our team of expert surveyors is ready to provide the precise measurements and data you need for your project's success.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-white text-secondary px-8 py-3 !rounded-button font-medium hover:bg-gray-100 transition duration-300 whitespace-nowrap">Get a Free Quote</button>
+<button class="bg-transparent text-white border-2 border-white px-8 py-3 !rounded-button font-medium hover:bg-white/10 transition duration-300 whitespace-nowrap">Learn More</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-secondary/90 text-white py-16">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div>
+<a href="#" class="text-primary text-3xl font-['Pacifico'] font-bold mb-6 block">Jurukur Hikmah</a>
+<p class="text-white/70 mb-6">Professional land surveying services with precision, reliability, and excellence since 2005.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition duration-300">
+<i class="ri-facebook-fill text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition duration-300">
+<i class="ri-twitter-fill text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition duration-300">
+<i class="ri-linkedin-fill text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition duration-300">
+<i class="ri-instagram-fill text-white"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-6">Quick Links</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-white/70 hover:text-primary transition duration-300">Home</a></li>
+<li><a href="#services" class="text-white/70 hover:text-primary transition duration-300">Services</a></li>
+<li><a href="#projects" class="text-white/70 hover:text-primary transition duration-300">Projects</a></li>
+<li><a href="#about" class="text-white/70 hover:text-primary transition duration-300">About Us</a></li>
+<li><a href="#contact" class="text-white/70 hover:text-primary transition duration-300">Contact</a></li>
+<li><a href="#" class="text-white/70 hover:text-primary transition duration-300">Careers</a></li>
+<li><a href="#" class="text-white/70 hover:text-primary transition duration-300">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-6">Our Services</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-white/70 hover:text-primary transition duration-300">Land Surveying</a></li>
+<li><a href="#" class="text-white/70 hover:text-primary transition duration-300">Topographic Mapping</a></li>
+<li><a href="#" class="text-white/70 hover:text-primary transition duration-300">Boundary Surveys</a></li>
+<li><a href="#" class="text-white/70 hover:text-primary transition duration-300">Construction Surveying</a></li>
+<li><a href="#" class="text-white/70 hover:text-primary transition duration-300">GPS Surveying</a></li>
+<li><a href="#" class="text-white/70 hover:text-primary transition duration-300">Land Title Surveys</a></li>
+<li><a href="#" class="text-white/70 hover:text-primary transition duration-300">3D Laser Scanning</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-6">Newsletter</h3>
+<p class="text-white/70 mb-6">Subscribe to our newsletter for the latest updates and insights on land surveying.</p>
+<form class="mb-6">
+<div class="flex">
+<input type="email" placeholder="Your email address" class="px-4 py-3 rounded-l-lg w-full border-none focus:outline-none text-gray-800">
+<button type="submit" class="bg-primary text-white px-4 py-3 rounded-r-lg hover:bg-primary/90 transition duration-300 whitespace-nowrap">Subscribe</button>
+</div>
+</form>
+<div class="flex items-center space-x-3">
+<span class="text-white/70">We accept:</span>
+<i class="ri-visa-fill ri-lg"></i>
+<i class="ri-mastercard-fill ri-lg"></i>
+<i class="ri-paypal-fill ri-lg"></i>
+</div>
+</div>
+</div>
+<div class="border-t border-white/10 mt-12 pt-8 text-center">
+<p class="text-white/70">© 2025 Jurukur Hikmah. All rights reserved. Professional Land Surveying Services.</p>
+</div>
+</div>
+</footer>
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+if (mobileMenu.classList.contains('hidden')) {
+mobileMenu.classList.remove('hidden');
+mobileMenuButton.innerHTML = '<i class="ri-close-line ri-2x"></i>';
+} else {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-2x"></i>';
+}
+});
+// Close mobile menu when clicking on a link
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-2x"></i>';
+});
+});
+});
+</script>
+<script id="form-validation-script">
+document.addEventListener('DOMContentLoaded', function() {
+const contactForm = document.querySelector('#contact form');
+if (contactForm) {
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+// Simple validation
+const name = document.getElementById('name');
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
+const message = document.getElementById('message');
+let isValid = true;
+if (!name.value.trim()) {
+name.classList.add('border-red-500');
+isValid = false;
+} else {
+name.classList.remove('border-red-500');
+}
+if (!email.value.trim() || !email.value.includes('@')) {
+email.classList.add('border-red-500');
+isValid = false;
+} else {
+email.classList.remove('border-red-500');
+}
+if (!phone.value.trim()) {
+phone.classList.add('border-red-500');
+isValid = false;
+} else {
+phone.classList.remove('border-red-500');
+}
+if (!message.value.trim()) {
+message.classList.add('border-red-500');
+isValid = false;
+} else {
+message.classList.remove('border-red-500');
+}
+if (isValid) {
+// Form is valid, you would normally submit it here
+alert('Thank you for your message! We will get back to you soon.');
+contactForm.reset();
+}
+});
+}
+});
+</script>
+<script id="navigation-highlight-script">
+document.addEventListener('DOMContentLoaded', function() {
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+function highlightNavLink() {
+const scrollPosition = window.scrollY;
+sections.forEach(section => {
+const sectionTop = section.offsetTop - 100;
+const sectionHeight = section.offsetHeight;
+const sectionId = section.getAttribute('id');
+if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+navLinks.forEach(link => {
+link.classList.remove('active');
+if (link.getAttribute('href') === '#' + sectionId) {
+link.classList.add('active');
+}
+});
+}
+});
+// If at the top of the page, highlight Home
+if (scrollPosition < 100) {
+navLinks.forEach(link => {
+link.classList.remove('active');
+if (link.getAttribute('href') === '#') {
+link.classList.add('active');
+}
+});
+}
+}
+window.addEventListener('scroll', highlightNavLink);
+highlightNavLink(); // Call once on page load
+});
+</script>
+</body>
+</html>
